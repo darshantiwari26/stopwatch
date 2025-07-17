@@ -1,0 +1,122 @@
+:root {
+  --bg-dark: #0a0a0a;
+  --bg-light: #f0f0f0;
+  --text-dark: #fff;
+  --text-light: #000;
+  --pulse-color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: background 0.4s, color 0.4s;
+}
+
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.stopwatch-container {
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 30px #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.stopwatch-container.active {
+  animation: boxPulse 1s infinite ease-in-out;
+}
+
+@keyframes boxPulse {
+  0% {
+    box-shadow: 0 0 10px var(--pulse-color);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--pulse-color);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--pulse-color);
+  }
+}
+
+.display {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #fff inset;
+}
+
+.buttons {
+  margin-bottom: 20px;
+}
+
+button {
+  margin: 8px;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background-color: #111;
+  color: #fff;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 5px #000 inset;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 5px #fff;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 5px #fff inset, 0 0 10px #fff inset;
+}
+
+body.light .stopwatch-container {
+  background: #fff;
+  box-shadow: 0 0 10px #000;
+}
+
+body.light .display {
+  border-color: #000;
+  box-shadow: 0 0 10px #000 inset;
+}
+
+body.light button {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 5px #000;
+}
+
+body.light button:hover {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 0 10px #000, 0 0 20px #000;
+}
+
+.laps {
+  margin-top: 20px;
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: left;
+  font-family: monospace;
+  font-size: 1em;
+  line-height: 1.5;
+}
